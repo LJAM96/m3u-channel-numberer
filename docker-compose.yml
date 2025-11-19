@@ -4,7 +4,7 @@ services:
   m3u-numberer:
     build: .
     # Or use pre-built image:
-    # image: ghcr.io/user/m3u-channel-numberer
+    # image: ghcr.io/LJAM96/m3u-channel-numberer
     volumes:
       - ./data:/data
       - rclone-config:/config/rclone:ro
