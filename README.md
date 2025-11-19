@@ -4,7 +4,7 @@ A lightweight Python script that automatically adds sequential channel numbers (
 
 ##  Features
 
-*   ** nput:** Works with local `.m3u` files OR directly from a URL.
+*   **Input:** Works with local `.m3u` files OR directly from a URL.
 *   **Tagging:** Inserts `tvg-chno="x"` correctly into the `#EXTINF` line.
 *   **Clean Update:** Detects and removes existing channel number tags before adding new ones to prevent duplicates.
 *   **Zero Dependencies:** Uses only standard Python libraries. No `pip install` required.
