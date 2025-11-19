@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  m3u-numberer:
+    build: .
+    # Or use pre-built image:
+    # image: ghcr.io/user/m3u-channel-numberer
+    volumes:
+      - ./data:/data
+      - rclone-config:/config/rclone:ro
+    environment:
+      - M3U_URL=${M3U_URL}
+      - CRON_SCHEDULE=${CRON_SCHEDULE:-}
+      - OUTPUT_PATH=${OUTPUT_PATH:-/data/numbered_playlist.m3u}
+      - RCLONE_REMOTE=${RCLONE_REMOTE:-}
+    depends_on:
+      - rclone
+    restart: unless-stopped
+
+  rclone:
+    image: rclone/rclone:latest
+    command: rcd --rc-web-gui --rc-addr :5572 --rc-user ${RCLONE_USER:-admin} --rc-pass ${RCLONE_PASS:-admin} --rc-serve
+    ports:
+      - "5572:5572"
+    volumes:
+      - rclone-config:/config/rclone
+    restart: unless-stopped
+
+volumes:
+  rclone-config:
