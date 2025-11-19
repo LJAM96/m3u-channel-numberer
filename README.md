@@ -17,7 +17,7 @@ A lightweight Python script that automatically adds sequential channel numbers (
 
 1.  Clone this repository or download the script.
     ```bash
-    git clone https://github.com/LJAM96/m3u-channel-numberer.git
+    git clone https://github.com/ljam96/m3u-channel-numberer.git
     ```
 2.  Navigate to the folder.
     ```bash
