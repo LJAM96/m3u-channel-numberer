@@ -15,7 +15,8 @@ services:
       - RCLONE_REMOTE=${RCLONE_REMOTE:-}
     depends_on:
       - rclone
-    restart: unless-stopped
+    # Use 'unless-stopped' when using CRON_SCHEDULE, or 'no' for one-time runs
+    restart: "no"
 
   rclone:
     image: rclone/rclone:latest
